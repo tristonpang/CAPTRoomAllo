@@ -1,7 +1,7 @@
 public class Room { // POJO class
     private String id;
     private boolean isMale; // no sexist we are doing the best with Java limitations
-    private int floor;
+    private int lvl;
     private boolean aircon;
     private int house; // 0 to 4, 
     private int suite; // 0 to 8, 0 for corridor, 1-8 represents suites
@@ -14,8 +14,8 @@ public class Room { // POJO class
         return this.isMale();
     } 
 
-    public int getFloor() {
-        return this.floor;
+    public int getLvl() {
+        return this.lvl;
     }
 
     public boolean getAircon() {
