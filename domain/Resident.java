@@ -17,7 +17,7 @@ public class Resident {
 
     private Room room;
 
-    @PlanningVariable // need to see if arguments needed for this annotation
+    @PlanningVariable(valueRangeProviderRefs = {"roomRange"}) // need to see if arguments needed for this annotation
     public Room getRoom() {
         return this.room;
     }

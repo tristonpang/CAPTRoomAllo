@@ -16,5 +16,52 @@ import org.optaplanner.persistence.xstream.api.score.buildin.hardsoft.HardSoftSc
 @PlanningSolution
 @XStreamAlias("RoomAllocation")
 public class RoomAllocation extends AbstractPersistable{
-    
+    private List<Room> roomList;
+
+    private List<Resident> residentList;
+
+    @XStreamConverter(HardSoftScoreXStreamConverter.class)
+    private HardSoftScore score;
+
+    public RoomAllocation() {
+    }
+
+    public RoomAllocation(int id, List<Room> roomList, List<Resident> residentList) {
+        super(id);
+        this.roomList = roomList;
+        this.residentList = residentList;
+    }
+
+    @ValueRangeProvider(id = "roomRange")
+    @ProblemFactCollectionProperty
+    public List<Room> getRoomList() {
+        return this.roomList;
+    }
+
+    public void setRoomList(List<Room> roomList) {
+        this.roomList = roomList;
+    }
+
+    @PlanningEntityCollectionProperty
+    public List<Resident> getResidentList() {
+        return residentList;
+    }
+
+    public void setResidentList(List<Resident> residentList) {
+        this.residentList = residentList;
+    }
+
+    @PlanningScore
+    public HardSoftScore getScore() {
+        return score;
+    }
+
+    public void setScore(HardSoftScore score) {
+        this.score = score;
+    }
+
+    // ************************************************************************
+    // Complex methods
+    // ************************************************************************
+
 }
